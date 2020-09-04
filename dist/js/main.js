@@ -1,10 +1,10 @@
-const { Word } = require('./Word');
+import { Word } from './Word.js';
 
 document.addEventListener('keydown', write);
 
 const container = document.querySelector('.container');
 
-let word;
+let word = '';
 let spanElement;
 
 function write(e) {
@@ -26,12 +26,12 @@ function write(e) {
 			word = new Word(spanElement);
 			word.addChar(keyPressed);
 			container.appendChild(spanElement);
-			spanElement.innerHTML = word;
+			spanElement.innerHTML = word.wordStr;
 		} else {
 			//get last span
 			spanElement = container.lastChild;
 			word += keyPressed;
-			spanElement.innerHTML = word;
+			spanElement.innerHTML = word.wordStr;
 		}
 	} else if (keyCode === 8) {
 	} else if (keyCode == 32) {
